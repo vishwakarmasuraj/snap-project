@@ -18,7 +18,7 @@ const userSignup = async (req, res) => {
 
 const getUser = async (req, res) => {
     try {
-        const result = await User.find({})
+        const result = await User.find({}).select('-password')
         successHandler(res, constants.USER_LISTING_SUCCESS_MSG, result)
     } catch (error) {
         return errorHandler(res, error)
@@ -26,7 +26,7 @@ const getUser = async (req, res) => {
 }
 
 generateToken = (user) => {
-    return jwt.sign({ data: user }, process.env.SECRET_KEY, {
+    return jwt.sign({ data: user }, config.SECRET_KEY, {
         expiresIn: '2h',
     })
 }
@@ -46,7 +46,7 @@ const userLogin = async (req, res) => {
                 } else if (match) {
                     successHandler(res, constants.SUCCESSLOGIN, {
                         token: generateToken(data),
-                        data,
+                        data
                     })
                 } else {
                     return errorHandler(res, constants.LOGINPASSFAIL)
@@ -61,9 +61,9 @@ const userLogin = async (req, res) => {
 const truncate = async (req, res) => {
     try {
         await User.remove({})
-        res.status(200).json({ message: 'Truncated' })
+        successHandler(res, constants.TRUNCATE_SUCCESS_MSG)
     } catch (error) {
-        res.status(500).json({ message: 'something went wrong' })
+        return errorHandler(res, constants.ERROR_MSG)
     }
 }
 

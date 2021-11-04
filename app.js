@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 require('dotenv').config()
 const port = process.env.PORT
-
 const routes = require('./router')
 
 app.use(bodyParser.urlencoded({ extended: false }))
