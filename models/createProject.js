@@ -6,11 +6,18 @@ const projectSchema = new Schema({
         type: String,
         required: true
     },
-    projectType: {
-        type: Array,
-        required: true,
-        enum: ['txt', 'pdf', 'file']
+    projetStart: {
+        type: String,
+        required: true
+    },
+    projectManager: {
+        type: String,
+        required: true
+    },
+    projectCost: {
+        type: Number,
+        required: true
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Project', projectSchema)

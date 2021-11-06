@@ -8,5 +8,6 @@ module.exports = Object.freeze({
     SUCCESS_LOGIN: 'User Logged in',
     ERROR_MSG: 'Email is not match',
     USER_LISTING_SUCCESS_MSG: 'User record found',
+    PROJECT_CREATE_SUCCESS_MSG: 'Project created successfully',
     TRUNCATE_SUCCESS_MSG: 'Truncated'
 })
