@@ -38,18 +38,18 @@ const userLogin = async (req, res) => {
         }
         let data = await User.findOne({ email: req.body.email })
         if (!data) {
-            return errorHandler(res, constants.EMAILLOGIN_ERR)
+            return errorHandler(res, constants.EMAIL_LOGIN_ERR)
         } else {
             await bcrypt.compare(req.body.password, data.password, (error, match) => {
                 if (error) {
                     return errorHandler(res, constants.ERROR_MSG, error)
                 } else if (match) {
-                    successHandler(res, constants.SUCCESSLOGIN, {
+                    successHandler(res, constants.SUCCESS_LOGIN, {
                         token: generateToken(data),
                         data
                     })
                 } else {
-                    return errorHandler(res, constants.LOGINPASSFAIL)
+                    return errorHandler(res, constants.LOGIN_PASS_FAIL)
                 }
             })
         }
