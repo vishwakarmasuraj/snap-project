@@ -9,15 +9,16 @@ const routes = require('./router')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(routes)
 app.use(passport.initialize());
 
 mongoose.connect(process.env.DATABASE_CONNECTION).then(() => {
+    app.use('/api', routes)
     console.log('Successfully connected to Database')
+    app.listen(port, () => console.log(`Server is listening at ${ port }`))
 })
 
 mongoose.connection.on('error', (err) => {
     console.log('Error: Could not connect to Database.', err);
 });
 
-app.listen(port, () => console.log(`Server is listening at ${ port }`))
+
