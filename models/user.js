@@ -12,7 +12,7 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        select: false
+        required: true
     }
 }, { timestamps: true })
 
