@@ -1,16 +1,24 @@
 const Project = require('../models/createProject')
-const constants = require('../constant/allConstants')
 const { successHandler, errorHandler } = require('../helper/responseHandler')
+const constants = require('../constant/allConstants')
 
-const projectCreate = async (req, res) => {
+const createProject = async (req, res) => {
     try {
-        console.log(req.body)
-        const create = await new Project(req.body)
-        await create.save()
+        const result = await new Project(req.body)
+        result.save()
         successHandler(res, constants.PROJECT_CREATE_SUCCESS_MSG)
     } catch (error) {
         errorHandler(res, error)
     }
 }
 
-module.exports = { projectCreate }
+const projectListing = async (req, res) => {
+    try {
+        const result = await Project.find({})
+        successHandler(res, constants.PROJECT_LISTING_SUCCESS, result)
+    } catch (error) {
+        errorHandler(res, error)
+    }
+}
+
+module.exports = { createProject, projectListing }

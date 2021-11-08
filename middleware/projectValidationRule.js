@@ -1,5 +1,6 @@
 const { body } = require('express-validator')
-const createProjectValidationRule = () => {
+
+const CreateProjectValidationRule = () => {
     return [
         body('projectName').notEmpty(),
         body('projectStart').notEmpty(),
@@ -8,4 +9,4 @@ const createProjectValidationRule = () => {
     ]
 }
 
-module.exports = { createProjectValidationRule }
+module.exports = { CreateProjectValidationRule }

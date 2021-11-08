@@ -6,7 +6,7 @@ const projectSchema = new Schema({
         type: String,
         required: true
     },
-    projetStart: {
+    projectStart: {
         type: String,
         required: true
     },
@@ -18,6 +18,6 @@ const projectSchema = new Schema({
         type: Number,
         required: true
     }
-}, { timestamps: true })
+})
 
 module.exports = mongoose.model('Project', projectSchema)
