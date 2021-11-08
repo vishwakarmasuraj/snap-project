@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const userProjectValidateRule = require('../middleware/projectCreateValidationRule')
-const userProjectValid = require('../middleware/valid')
-const userProjectCreation = require('../controller/projectCreation')
+const createProjectValidRule = require('../middleware/projectCreateValidationRule')
+const projectValid = require('../middleware/valid')
+const projectController = require('../controller/projectCreation')
 
-router.post('/create-project', userProjectValidateRule.createProjectValidationRule(), userProjectValid.validate, userProjectCreation.projectCreate)
-
+router.post('/create-project', createProjectValidRule.createProjectValidationRule(), projectValid.validate, projectController.projectCreate)
 
 module.exports = router
