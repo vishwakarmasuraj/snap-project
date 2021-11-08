@@ -12,7 +12,6 @@ const addProduct = async (req, res) => {
         errorHandler(res, error)
     }
 }
-
 const getProduct = async (req, res) => {
     try {
         const result = await Product.find({})
@@ -21,7 +20,6 @@ const getProduct = async (req, res) => {
         errorHandler(res, error)
     }
 }
-
 const productTruncate = async (req, res) => {
     try {
         await Product.remove({})
@@ -30,6 +28,5 @@ const productTruncate = async (req, res) => {
         return res.status(500).json({ message: 'something went wrong' })
     }
 }
-
 
 module.exports = { addProduct, getProduct, productTruncate }
