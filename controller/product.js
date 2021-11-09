@@ -7,7 +7,7 @@ const addProduct = async (req, res) => {
         console.log('req.userData------|>', req.userData)
         const productAdd = await new Product({ userIds: req.userData._id, name: req.body.name, description: req.body.description })
         productAdd.save()
-        successHandler(res, constants.PROJECT_CREATE_SUCCESS_MSG)
+        successHandler(res, constants.PROJECT_CREATE_SUCCESS_MSG, productAdd)
     } catch (error) {
         errorHandler(res, error)
     }
