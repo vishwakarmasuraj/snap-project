@@ -19,7 +19,7 @@ const userSignup = async (req, res) => {
 const getUser = async (req, res) => {
     try {
         const result = await User.find({}).select('-password')
-        successHandler(res, constants.USER_LISTING_SUCCESS_MSG, result)
+        successHandler(result, res, constants.USER_LISTING_SUCCESS_MSG)
     } catch (error) {
         return errorHandler(res, error)
     }
