@@ -5,4 +5,6 @@ router.use('/user', require('./userRouter'))
 
 router.use('/product', require('./productRouter'))
 
+router.use('/upload', require('./uploadRouter'))
+
 module.exports = router

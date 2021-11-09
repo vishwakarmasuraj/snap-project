@@ -10,5 +10,7 @@ module.exports = Object.freeze({
     USER_LISTING_SUCCESS_MSG: 'User record found',
     PROJECT_CREATE_SUCCESS_MSG: 'Product created successfully',
     PROJECT_LISTING_SUCCESS: 'Found all product list',
+    IMAGE_UPLOAD_SUCCESS: 'Image uploaded successfully',
+    IMAGE_UPLOAD_ERR: 'Only Image format allowed!',
     TRUNCATE_SUCCESS_MSG: 'Truncated'
 })
