@@ -7,6 +7,7 @@ const config = process.env
 
 const userSignup = async (req, res) => {
     try {
+        const { name, email, password } = req.body;
         req.body.password = await bcrypt.hash(req.body.password, constants.ROUND)
         const user = await new User(req.body)
         await user.save()
