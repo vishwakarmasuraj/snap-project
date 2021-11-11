@@ -15,8 +15,7 @@ router.post('/test-email', async (req, res) => {
     try {
 
         const options = {
-            from: 'nowtest465@gmail.com',
-            to: 'nowtest465@gmail.com',
+
             subject: 'test sending email',
             text: 'wow! This is simple'
         }
