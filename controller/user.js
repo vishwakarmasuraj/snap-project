@@ -4,10 +4,10 @@ const constants = require('../constant/allConstants')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const config = process.env
+const nodemailer = require('nodemailer')
 
 const userSignup = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
         req.body.password = await bcrypt.hash(req.body.password, constants.ROUND)
         const user = await new User(req.body)
         await user.save()
@@ -67,5 +67,7 @@ const truncate = async (req, res) => {
         return errorHandler(res, constants.ERROR_MSG)
     }
 }
+
+
 
 module.exports = { userSignup, getUser, userLogin, truncate }

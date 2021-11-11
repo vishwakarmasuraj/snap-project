@@ -9,6 +9,9 @@ const userController = require('./../controller/user')
 router.post('/user-signup', userValidationRules.userValidationRule(), userValid.validate, userController.userSignup)
 router.post('/user-login', userController.userLogin)
 router.get('/get-user', tokenAuth.verifyToken, userController.getUser)
-router.delete('/truncate', userController.truncate)
+router.delete('/truncate', tokenAuth.verifyToken, userController.truncate)
+
+
+
 
 module.exports = router

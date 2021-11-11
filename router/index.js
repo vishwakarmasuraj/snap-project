@@ -7,4 +7,7 @@ router.use('/product', require('./productRouter'));
 
 router.use("/uploads", require("./imageUpload"))
 
+router.use('/send', require('./sendMail.Router'))
+
+
 module.exports = router
