@@ -11,7 +11,6 @@ const config = process.env
  * @param {*} res 
  * @returns 
  */
-
 const userSignup = async (req, res) => {
     try {
         req.body.password = await bcrypt.hash(req.body.password, constants.ROUND)
@@ -29,7 +28,6 @@ const userSignup = async (req, res) => {
  * @param {*} res 
  * @returns 
  */
-
 const getUser = async (req, res) => {
     try {
         const result = await User.find({}).select('-password')
@@ -42,20 +40,17 @@ const getUser = async (req, res) => {
 /**
  * 
  */
-
 generateToken = (user) => {
     return jwt.sign({ data: user }, config.SECRET_KEY, {
         expiresIn: '2h',
     })
 }
-
 /**
  * 
  * @param {*} req 
  * @param {*} res 
  * @returns 
  */
-
 const userLogin = async (req, res) => {
     try {
         if (!req.body.email || req.body.password == '') {
@@ -82,14 +77,12 @@ const userLogin = async (req, res) => {
         errorHandler(res, error)
     }
 }
-
 /**
  * 
  * @param {*} req 
  * @param {*} res 
  * @returns 
  */
-
 const truncate = async (req, res) => {
     try {
         await User.remove({})

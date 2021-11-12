@@ -9,9 +9,7 @@ const routes = require('./router')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 app.use('/api', routes)
-
 app.use(passport.initialize());
 
 mongoose.connect(process.env.DATABASE_CONNECTION).then(() => {

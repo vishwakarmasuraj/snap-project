@@ -13,5 +13,6 @@ module.exports = Object.freeze({
     PRODUCT_TRUNCATE_MSG: 'product truncated',
     IMAGE_UPLOAD_SUCCESS: 'Image uploaded successfully',
     IMAGE_UPLOAD_ERR: 'Only Image format allowed!',
+    TEAM_ADD_SUCCESS: 'Team member added',
     TRUNCATE_SUCCESS_MSG: 'Truncated'
 })

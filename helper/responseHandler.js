@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {*} res 
+ * @param {*} message 
+ * @param {*} result 
+ */
+
 const successHandler = (res, message, result) => {
     res.status(200).json({ message, result })
 }

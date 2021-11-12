@@ -1,5 +1,12 @@
 const jwt = require('jsonwebtoken')
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
+ */
 const verifyToken = async (req, res, next) => {
     try {
         const token = await req.headers.authorization

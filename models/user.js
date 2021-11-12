@@ -12,6 +12,14 @@ const userSchema = new Schema({
     password: {
         type: Schema.Types.String,
         required: true
+    },
+    role: {
+        type: Schema.Types.String,
+        required: true
+    },
+    status: {
+        type: Schema.Types.String,
+        enum: ['Active', 'Inactive']
     }
 }, { timestamps: true })
 
