@@ -2,30 +2,50 @@ const Product = require('../models/createProduct')
 const { successHandler, errorHandler } = require('../helper/responseHandler')
 const constants = require('../constant/allConstants')
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+
 const addProduct = async (req, res) => {
     try {
-        console.log('req.userData------|>', req.userData)
         const productAdd = await new Product({ userIds: req.userData._id, name: req.body.name, description: req.body.description })
-        productAdd.save()
-        successHandler(res, constants.PROJECT_CREATE_SUCCESS_MSG, productAdd)
+        await productAdd.save()
+        successHandler(res, constants.PRODUCT_CREATE_SUCCESS_MSG, productAdd)
     } catch (error) {
         errorHandler(res, error)
     }
 }
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+
 const getProduct = async (req, res) => {
     try {
         const result = await Product.find({})
-        successHandler(res, constants.PROJECT_LISTING_SUCCESS, result)
+        successHandler(res, constants.PRODUCT_LISTING_SUCCESS, result)
     } catch (error) {
         errorHandler(res, error)
     }
 }
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+
 const productTruncate = async (req, res) => {
     try {
         await Product.remove({})
-        res.status(200).json({ message: 'product truncated' })
+        successHandler(res, constants.PRODUCT_TRUNCATE_MSG)
     } catch (error) {
-        return res.status(500).json({ message: 'something went wrong' })
+        return errorHandler(res, error)
     }
 }
 

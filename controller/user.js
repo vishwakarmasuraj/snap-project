@@ -4,7 +4,13 @@ const constants = require('../constant/allConstants')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const config = process.env
-const nodemailer = require('nodemailer')
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 
 const userSignup = async (req, res) => {
     try {
@@ -17,6 +23,13 @@ const userSignup = async (req, res) => {
     }
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+
 const getUser = async (req, res) => {
     try {
         const result = await User.find({}).select('-password')
@@ -26,11 +39,22 @@ const getUser = async (req, res) => {
     }
 }
 
+/**
+ * 
+ */
+
 generateToken = (user) => {
     return jwt.sign({ data: user }, config.SECRET_KEY, {
         expiresIn: '2h',
     })
 }
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 
 const userLogin = async (req, res) => {
     try {
@@ -59,6 +83,13 @@ const userLogin = async (req, res) => {
     }
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+
 const truncate = async (req, res) => {
     try {
         await User.remove({})
@@ -67,7 +98,5 @@ const truncate = async (req, res) => {
         return errorHandler(res, constants.ERROR_MSG)
     }
 }
-
-
 
 module.exports = { userSignup, getUser, userLogin, truncate }

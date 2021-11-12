@@ -11,10 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/api', routes)
-// app.use((req, res, next) => {
-//     console.log("req", req);
-//     next()
-// })
+
 app.use(passport.initialize());
 
 mongoose.connect(process.env.DATABASE_CONNECTION).then(() => {

@@ -1,6 +1,6 @@
 const { body } = require('express-validator')
 
-const productvalidRule = () => {
+const productValidRule = () => {
     return [
         // body('userIds').notEmpty(),
         body('name').notEmpty(),
@@ -8,4 +8,4 @@ const productvalidRule = () => {
     ]
 }
 
-module.exports = { productvalidRule }
+module.exports = { productValidRule }

@@ -1,6 +1,10 @@
-const express = require('express')
-const router = express.Router()
-const helper = require("./../helper/fileUpload");
+const express = require('express'),
+    router = express.Router(),
+    helper = require("./../helper/fileUpload");
+
+/**
+ * 
+ */
 
 router.post('/test', helper.single("file"), function (req, res) {
     console.log("req.file.filename", req.file.filename);

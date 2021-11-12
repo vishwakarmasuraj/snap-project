@@ -1,13 +1,20 @@
-const express = require('express')
-const router = express.Router()
-
-const productValidateRule = require('./../middleware/productValidationRule')
-const productValid = require('./../middleware/valid')
-const productAuth = require('./../middleware/auth')
-const productController = require('./../controller/product')
-
-router.post('/create-product', productValidateRule.productvalidRule(), productValid.validate, productAuth.verifyToken, productController.addProduct)
-router.get('/get-product', productAuth.verifyToken, productController.getProduct)
-router.delete('/truncate', productController.productTruncate)
+const express = require('express'),
+    router = express.Router(),
+    { productValidateRule } = require('./../middleware'),
+    { valid } = require('./../middleware'),
+    { auth } = require('./../middleware'),
+    { productController } = require('./../controller');
+/**
+ * 
+ */
+router.post('/create-product', productValidateRule.productValidRule(), valid.validate, auth.verifyToken, productController.addProduct)
+/**
+ * 
+ */
+router.get('/get-product', auth.verifyToken, productController.getProduct)
+/**
+ * 
+ */
+router.delete('/truncate', auth.verifyToken, productController.productTruncate)
 
 module.exports = router
