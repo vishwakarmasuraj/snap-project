@@ -11,9 +11,11 @@ const addTeamSchema = new Schema({
     },
     role: {
         type: String,
+        default: []
     },
     status: {
         type: String,
+        enum: ['Active', 'Inactive']
     }
 }, { timestamps: true })
 

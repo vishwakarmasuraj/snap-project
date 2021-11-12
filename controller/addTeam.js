@@ -4,13 +4,13 @@ const constants = require('../constant/allConstants')
 
 const addTeamMember = async (req, res) => {
     try {
-        const addTeam = await new TeamAdd(req.body)
+        const addTeam = await new TeamAdd({ name: req.body.name, email: req.body.email, role: req.body.role, status: req.body.status })
         await addTeam.save()
-        successHandler(res, constants.TEAM_ADD_SUCCESS)
+        return successHandler(res, constants.TEAM_ADD_SUCCESS)
     } catch (error) {
-        errorHandler(res, error)
+        return errorHandler(res, error)
     }
-}
 
+}
 
 module.exports = { addTeamMember }
