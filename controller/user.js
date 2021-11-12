@@ -77,6 +77,7 @@ const userLogin = async (req, res) => {
         errorHandler(res, error)
     }
 }
+
 /**
  * 
  * @param {*} req 

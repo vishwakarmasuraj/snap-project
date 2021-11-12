@@ -6,7 +6,7 @@ const teamAddValidateRule = () => {
             .custom(value => {
                 return TeamAdd.findOne({ name: value }).then(user => {
                     if (user) {
-                        return Promise.reject('name is already Exist')
+                        return Promise.reject('name is already exist')
                     }
                 })
             }),

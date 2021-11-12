@@ -9,14 +9,12 @@ const addTeamSchema = new Schema({
         type: String,
         required: true
     },
-    // role: {
-    //     type: String,
-    //     required: true
-    // },
-    // status: {
-    //     type: String,
-    //     enum: ['Active', 'Inactive']
-    // }
+    role: {
+        type: String,
+    },
+    status: {
+        type: String,
+    }
 }, { timestamps: true })
 
 module.exports = model('TeamAdd', addTeamSchema)
