@@ -1,6 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const addTeamSchema = new Schema({
+    createdBy: {
+        _id: { default: Schema.Types.ObjectId }
+    },
     name: {
         type: String,
         required: true,
@@ -11,7 +14,6 @@ const addTeamSchema = new Schema({
     },
     role: {
         type: String,
-        default: []
     },
     status: {
         type: String,

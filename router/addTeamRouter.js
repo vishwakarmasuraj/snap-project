@@ -6,6 +6,6 @@ const { addTeamController } = require('./../controller');
 /**
  * 
  */
-router.post('/add-team', addTeamValidateRule.teamAddValidateRule(), valid.validate, auth.verifyToken, addTeamController.addTeamMember)
+router.post('/add-team', addTeamValidateRule.teamAddValidateRule(), valid.validate, addTeamController.addTeamMember)
 
 module.exports = router

@@ -1,6 +1,9 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
+    createdBy: {
+        _id: { default: Schema.Types.ObjectId }
+    },
     name: {
         type: Schema.Types.String,
         required: true
@@ -13,6 +16,7 @@ const userSchema = new Schema({
         type: Schema.Types.String,
         required: true
     },
+
     role: {
         type: Schema.Types.String,
         required: true
