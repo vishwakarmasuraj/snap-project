@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
-    createdBy: {
-        _id: { default: Schema.Types.ObjectId }
-    },
     name: {
         type: Schema.Types.String,
         required: true
@@ -23,7 +20,8 @@ const userSchema = new Schema({
     },
     status: {
         type: Schema.Types.String,
-        enum: ['Active', 'Inactive']
+        enum: ['active', 'Inactive'],
+        default: 'active'
     }
 }, { timestamps: true })
 

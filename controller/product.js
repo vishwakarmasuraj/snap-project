@@ -1,4 +1,4 @@
-const Product = require('../models/createProduct')
+const { productModel } = require('../models')
 const { successHandler, errorHandler } = require('../helper/responseHandler')
 const constants = require('../constant/allConstants')
 
@@ -10,7 +10,7 @@ const constants = require('../constant/allConstants')
 
 const addProduct = async (req, res) => {
     try {
-        const productAdd = await new Product({ userIds: req.userData._id, name: req.body.name, description: req.body.description })
+        const productAdd = await new productModel({ userIds: req.userData._id, name: req.body.name, description: req.body.description })
         await productAdd.save()
         successHandler(res, constants.PRODUCT_CREATE_SUCCESS_MSG, productAdd)
     } catch (error) {
@@ -26,7 +26,7 @@ const addProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
     try {
-        const result = await Product.find({})
+        const result = await productModel.find({})
         successHandler(res, constants.PRODUCT_LISTING_SUCCESS, result)
     } catch (error) {
         errorHandler(res, error)
@@ -42,7 +42,7 @@ const getProduct = async (req, res) => {
 
 const productTruncate = async (req, res) => {
     try {
-        await Product.remove({})
+        await productModel.remove({})
         successHandler(res, constants.PRODUCT_TRUNCATE_MSG)
     } catch (error) {
         return errorHandler(res, error)
