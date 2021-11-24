@@ -1,11 +1,11 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
-    name: {
+    fullName: {
         type: Schema.Types.String,
         required: true
     },
-    email: {
+    workEmail: {
         type: Schema.Types.String,
         required: true
     },
@@ -13,7 +13,6 @@ const userSchema = new Schema({
         type: Schema.Types.String,
         required: true
     },
-
     role: {
         type: Schema.Types.String,
         required: true

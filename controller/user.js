@@ -13,7 +13,7 @@ const config = process.env
  */
 const userSignup = async (req, res) => {
     try {
-        req.body.password = await bcrypt.hash(req.body.password, constants.ROUND)
+        req.body.password = await bcrypt.hashSync(req.body.password, constants.ROUND)
         const user = await new userModel(req.body)
         await user.save()
         successHandler(res, constants.SIGNUP_SUCCESS_MSG)
@@ -30,7 +30,7 @@ const userSignup = async (req, res) => {
  */
 const getUser = async (req, res) => {
     try {
-        const result = await userModel.userModel({}).select('-password')
+        const result = await userModel.find({}).select('-password')
         successHandler(res, constants.USER_LISTING_SUCCESS_MSG, result)
     } catch (error) {
         return errorHandler(res, error)
@@ -53,10 +53,10 @@ generateToken = (user) => {
  */
 const userLogin = async (req, res) => {
     try {
-        if (!req.body.email || req.body.password == '') {
+        if (!req.body.workEmail || req.body.password == '') {
             res.status(400).json({ message: 'Valid email and password are required' })
         }
-        let data = await userModel.findOne({ email: req.body.email })
+        let data = await userModel.findOne({ workEmail: req.body.workEmail })
         if (!data) {
             return errorHandler(res, constants.EMAIL_LOGIN_ERR)
         } else {
