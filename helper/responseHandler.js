@@ -1,7 +1,7 @@
 /**
  * 
  * @param {*} res 
- * @param {*} message 
+ * @param {*} message // it's used for sending message
  * @param {*} result 
  */
 
