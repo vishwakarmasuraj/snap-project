@@ -4,6 +4,7 @@ const express = require('express'),
     { valid } = require('./../middleware'),
     { auth } = require('./../middleware'),
     { productController } = require('./../controller');
+
 /**
  * 
  */
