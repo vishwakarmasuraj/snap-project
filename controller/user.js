@@ -72,7 +72,7 @@ const userLogin = async (req, res) => {
         if (!req.body.workEmail || req.body.password == '') {
             res.status(400).json({ message: 'Valid email and password are required' })
         }
-        let data = await userModel.findOne({ workEmail: req.body.workEmail })
+        let data = await userModel.findOne({ workEmail: req.body.workEmail });
         if (!data) {
             return errorHandler(res, constants.EMAIL_LOGIN_ERR)
         } else {
