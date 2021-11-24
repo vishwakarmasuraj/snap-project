@@ -20,6 +20,10 @@ router.get('/get-user', auth.verifyToken, userController.getUser)
 /**
  * 
  */
+router.get('/get-by-id/:_id', auth.verifyToken, userController.getUserById)
+/**
+ * 
+ */
 router.delete('/truncate', auth.verifyToken, userController.truncate)
 
 module.exports = router

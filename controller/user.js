@@ -37,6 +37,16 @@ const getUser = async (req, res) => {
     }
 }
 
+const getUserById = async (req, res) => {
+    try {
+        const id = req.params
+        const result = await userModel.findOne({ _id: id }).select('-password')
+        successHandler(res, constants.GET_MSG_BY_ID, result)
+    } catch (error) {
+        return errorHandler(res, constants.ERROR_MSG)
+    }
+}
+
 /**
  * 
  */
@@ -93,4 +103,4 @@ const truncate = async (req, res) => {
     }
 }
 
-module.exports = { userSignup, getUser, userLogin, truncate }
+module.exports = { userSignup, getUser, userLogin, getUserById, truncate }
