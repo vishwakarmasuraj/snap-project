@@ -1,8 +1,8 @@
-const { userModel } = require('../models')
-const { successHandler, errorHandler } = require('../helper/responseHandler')
-const constants = require('../constant/allConstants')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const { userModel } = require('../models');
+const { successHandler, errorHandler } = require('../helper/responseHandler');
+const constants = require('../constant/allConstants');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const config = process.env
 
 /**
