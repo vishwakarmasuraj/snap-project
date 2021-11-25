@@ -109,4 +109,9 @@ const truncate = async (req, res) => {
         return errorHandler(res, constants.ERROR_MSG)
     }
 };
+
+let str = 'daddy';
+console.log(str.match('d').replace('d', 'f'))
+
+
 module.exports = { userSignup, getUser, userLogin, getUserById, truncate }
