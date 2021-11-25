@@ -103,23 +103,10 @@ const userLogin = async (req, res) => {
 const truncate = async (req, res) => {
     try {
         await userModel.remove({})
+
         successHandler(res, constants.TRUNCATE_SUCCESS_MSG)
     } catch (error) {
         return errorHandler(res, constants.ERROR_MSG)
     }
 };
-
-// let arr = 8;
-// let result = (arr % 2 == 0) ? 'even' : 'odd'
-// console.log(result)
-
-let age = 25;
-let result = (age > 20) ? true : false
-console.log(result)
-
-const hariom = 'abc'
-hariom = 'c'
-console.log(hariom)
-
-
 module.exports = { userSignup, getUser, userLogin, getUserById, truncate }
