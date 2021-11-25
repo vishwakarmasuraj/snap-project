@@ -1,3 +1,4 @@
 module.exports = {
-    responseHandler: require('./responseHandler')
+    responseHandler: require('./responseHandler'),
+    uploadHelper: require('./fileUpload')
 }
