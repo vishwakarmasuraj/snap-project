@@ -8,8 +8,16 @@ const port = process.env.PORT
 const routes = require('./router')
 
 /**
- * 
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id User's unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
  */
+
 mongoose.connect(process.env.DATABASE_CONNECTION).then(() => {
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
@@ -20,3 +28,4 @@ mongoose.connect(process.env.DATABASE_CONNECTION).then(() => {
 }).catch((error) => {
     console.log(error)
 });
+

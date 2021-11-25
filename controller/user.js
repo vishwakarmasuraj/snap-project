@@ -110,8 +110,9 @@ const truncate = async (req, res) => {
     }
 };
 
-let str = 'daddy';
-console.log(str.match('d').replace('d', 'f'))
+/**
+ * @api {get} /user/:id Request user information
+ */
 
 
 module.exports = { userSignup, getUser, userLogin, getUserById, truncate }
