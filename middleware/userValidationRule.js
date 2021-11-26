@@ -17,8 +17,10 @@ const userValidationRule = () => {
                     return Promise.reject({ message: 'Email is already exist' })
                 }
             })
-        }).withMessage('Email should be type of email'),
-        check('password').notEmpty().isLength({ min: 8 }),
+        }).withMessage('Email should be email type '),
+        check('password').notEmpty().isLength({ min: 8 })
+            .withMessage("Please enter a password at least 8 character"),
+        // .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i")
         body('role').notEmpty().isAlpha(),
         body('status').notEmpty().isAlpha()
     ]

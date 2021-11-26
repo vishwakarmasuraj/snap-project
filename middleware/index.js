@@ -3,5 +3,5 @@ module.exports = {
     auth: require('./auth'),
     productValidateRule: require('./productValidationRule'),
     userValidateRule: require('./userValidationRule'),
-    addTeamValidateRule: require('./addTeamValidateRule')
+    addTeamValidRule: require('./addMemberValidRule')
 }

@@ -110,9 +110,4 @@ const truncate = async (req, res) => {
     }
 };
 
-/**
- * @api {get} /user/:id Request user information
- */
-
-
 module.exports = { userSignup, getUser, userLogin, getUserById, truncate }
