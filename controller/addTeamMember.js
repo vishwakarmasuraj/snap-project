@@ -5,7 +5,7 @@ const constants = require('../constant/allConstants');
 const teamMember = async (req, res) => {
     try {
         console.log(req.body)
-        const add = await new addTeamModel({ createdBy: req.body.createdBy, name: req.body.name, email: req.body.email, status: req.body.status })
+        const add = await new addTeamModel({ createdBy: req.userData.createdBy, name: req.body.name, email: req.body.email, status: req.body.status })
         await add.save()
         successHandler(res, constants.ADD_TEAM_SUCCESS);
     } catch (error) {

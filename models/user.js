@@ -15,7 +15,8 @@ const userSchema = new Schema({
     },
     role: {
         type: Schema.Types.String,
-        required: true
+        required: true,
+        enum: ['admin', 'super admin']
     },
     status: {
         type: Schema.Types.String,

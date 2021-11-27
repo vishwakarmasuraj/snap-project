@@ -2,6 +2,7 @@ module.exports = Object.freeze({
     SIGNUP_SUCCESS_MSG: 'Successfully signed up',
     ROUND: 10,
     GET_MSG_BY_ID: 'User found by id',
+    EMAIL_ERROR: "Email already exist",
     GET_MSG: 'Found record',
     ERROR_MSG: 'Something went wrong',
     LOGIN_SUCCESS_MSG: 'Successfully Logged in',
